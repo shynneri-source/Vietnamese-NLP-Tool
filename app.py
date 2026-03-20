@@ -19,6 +19,11 @@ st.set_page_config(
 # Custom CSS for modern UI
 st.markdown("""
 <style>
+    /* Force light theme */
+    [data-testid="stAppViewContainer"] {
+        background-color: #f8fafc;
+    }
+    
     /* Hide default header */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
@@ -91,7 +96,7 @@ st.markdown("""
     .section-header {
         font-size: 1.4rem;
         font-weight: 700;
-        color: var(--text-primary);
+        color: #1e293b !important;
         margin-bottom: 1rem;
         display: flex;
         align-items: center;
@@ -170,6 +175,7 @@ st.markdown("""
         border: 2px solid var(--border-color);
         transition: all 0.3s ease;
         font-size: 1rem;
+        color: #1e293b !important;
     }
     .stTextArea textarea:focus {
         border-color: #8b5cf6;
@@ -179,7 +185,7 @@ st.markdown("""
     /* Tabs styling */
     .stTabs [data-baseweb="tab-list"] {
         gap: 0.5rem;
-        background: #f8fafc;
+        background: #f1f5f9;
         padding: 0.5rem;
         border-radius: 12px;
     }
@@ -187,6 +193,7 @@ st.markdown("""
         border-radius: 8px;
         padding: 0.75rem 1.5rem;
         font-weight: 600;
+        color: #475569 !important;
         transition: all 0.2s ease;
     }
     .stTabs [data-baseweb="tab"]:hover {
@@ -195,7 +202,7 @@ st.markdown("""
     }
     .stTabs [aria-selected="true"] {
         background: var(--primary-gradient);
-        color: white;
+        color: white !important;
         border: none;
     }
     
@@ -221,6 +228,7 @@ st.markdown("""
         border-radius: 12px;
         overflow: hidden;
         box-shadow: var(--shadow-sm);
+        background: white;
     }
     .dataframe th {
         background: #f8fafc;
@@ -230,12 +238,13 @@ st.markdown("""
     }
     .dataframe td {
         padding: 0.75rem 1rem;
+        color: #1e293b !important;
     }
     
     /* Download button */
     .stDownloadButton > button {
         background: var(--primary-gradient);
-        color: white;
+        color: white !important;
         border: none;
         padding: 0.875rem 2rem;
         border-radius: 12px;
@@ -251,6 +260,12 @@ st.markdown("""
     }
     
     /* Sidebar styling */
+    section[data-testid="stSidebar"] {
+        background-color: #ffffff;
+    }
+    section[data-testid="stSidebar"] * {
+        color: #1e293b !important;
+    }
     .sidebar-content {
         padding: 1.5rem;
     }
@@ -286,6 +301,19 @@ st.markdown("""
         padding: 1rem 1.25rem;
         border-radius: 8px;
         margin: 1rem 0;
+        color: #1e40af !important;
+    }
+    
+    /* Markdown text color */
+    .stMarkdown, .stMarkdown p, .stMarkdown li {
+        color: #1e293b !important;
+    }
+    
+    /* JSON display */
+    .stJson {
+        background: white;
+        border-radius: 12px;
+        padding: 1rem;
     }
 </style>
 """, unsafe_allow_html=True)
