@@ -399,34 +399,22 @@ def main():
 
     # Sidebar
     with st.sidebar:
+        st.markdown("### 🎯 Tính năng")
         st.markdown("""
-            <div class="sidebar-content">
-                <div class="sidebar-card">
-                    <h3 style="margin-top: 0; color: #1e293b;">🎯 Tính năng</h3>
-                    <ul style="padding-left: 1.25rem; color: #64748b; line-height: 1.8;">
-                        <li><strong>Tokenize:</strong> Tách từ tiếng Việt</li>
-                        <li><strong>POS Tagging:</strong> Gán nhãn từ loại</li>
-                        <li><strong>Highlight màu:</strong> Hiển thị trực quan</li>
-                        <li><strong>Export CSV:</strong> Tải kết quả</li>
-                    </ul>
-                </div>
-                
-                <div class="sidebar-card">
-                    <h3 style="margin-top: 0; color: #1e293b;">📖 Hướng dẫn</h3>
-                    <p style="color: #64748b; font-size: 0.9rem;">
-                        Di chuột vào từ đã tô màu để xem nhãn từ loại
-                    </p>
-                </div>
-                
-                <div class="sidebar-card" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
-                    <h3 style="margin-top: 0; color: white;">👤 Sinh viên</h3>
-                    <p style="color: rgba(255,255,255,0.9); margin: 0.5rem 0;">
-                        <strong>MSSV:</strong> 123000218<br>
-                        <strong>Tên:</strong> Phước
-                    </p>
-                </div>
-            </div>
-        """, unsafe_allow_html=True)
+        - **Tokenize:** Tách từ tiếng Việt
+        - **POS Tagging:** Gán nhãn từ loại
+        - **Highlight màu:** Hiển thị trực quan
+        - **Export CSV:** Tải kết quả
+        """)
+        
+        st.divider()
+        st.markdown("### 📖 Hướng dẫn")
+        st.info("💡 Di chuột vào từ đã tô màu để xem nhãn từ loại")
+        
+        st.divider()
+        st.markdown("### 👤 Sinh viên")
+        st.markdown("**MSSV:** 123000218")
+        st.markdown("**Tên:** Phước")
 
     # Input section
     st.markdown('<p class="section-header">Nhập văn bản</p>', unsafe_allow_html=True)
@@ -479,11 +467,7 @@ def main():
     tab1, tab2, tab3 = st.tabs(["🎨 Highlight Màu", "🔤 Tokenize", "🏷️ POS Tagging"])
 
     with tab1:
-        st.markdown("""
-            <div class="info-box">
-                <strong>💡 Mẹo:</strong> Di chuột vào từng từ để xem nhãn từ loại
-            </div>
-        """, unsafe_allow_html=True)
+        st.info("💡 **Mẹo:** Di chuột vào từng từ để xem nhãn từ loại")
         highlighted_html = generate_highlighted_html(tagged_tokens)
         st.markdown(
             f'<div style="font-size: 18px; line-height: 3; padding: 24px; '
@@ -510,12 +494,7 @@ def main():
 
     col1, col2 = st.columns([3, 1])
     with col1:
-        st.markdown("""
-            <div class="info-box" style="margin: 0;">
-                <strong>📥 Định dạng CSV</strong><br>
-                <span style="color: #64748b;">Bao gồm: Token, POS Tag, và mô tả nghĩa</span>
-            </div>
-        """, unsafe_allow_html=True)
+        st.markdown("**📥 Định dạng CSV**  \nBao gồm: Token, POS Tag, và mô tả nghĩa")
     with col2:
         st.download_button(
             label="📊 Tải CSV",
